@@ -19,7 +19,7 @@ int KeyReg[4][4] = {
 int TimerForKeyPress = 200;
 
 int button_ports[4] = {A0_GPIO_Port, A1_GPIO_Port, A2_GPIO_Port, A3_GPIO_Port};
-int button_pins[4] = {A0_Pin,A1_Pin, A2_Pin, A3_Pin};
+int button_pins[4] = {A0_Pin, A1_Pin, A2_Pin, A3_Pin};
 
 int isButtonPressed(int key){
 	if(button_flag[key] == 1){

@@ -17,17 +17,18 @@ void fsm_automatic_run(){
 	switch(status) {
 		case INIT:
 			status = RED_GREEN;
+			setInitialValue(red_duration, green_duration);
 			setTimer(green_duration*100, 0);
 			setTimer(100, 1);
 			break;
 		case RED_GREEN:
 			setHorizontalLeds(SET,RESET,RESET);
 			setVerticalLeds(RESET,SET, RESET);
-
 			if(timer_flag[0] == 1){
 				setPedesLeds(RESET,RESET,RESET);
 				setTimer(yellow_duration*100, 0);
 				status = RED_YELLOW;
+				setInitialValue(yellow_duration, yellow_duration);
 			}
 			if(timer_flag[1] == 1){
 				countDown();
@@ -51,6 +52,7 @@ void fsm_automatic_run(){
 				setPedesLeds(RESET,RESET,RESET);
 				setTimer(green_duration*100, 0);
 				status = GREEN_RED;
+				setInitialValue(green_duration, red_duration);
 			}
 			if(timer_flag[1] == 1){
 				countDown();
@@ -67,6 +69,7 @@ void fsm_automatic_run(){
 				setPedesLeds(RESET,RESET,RESET);
 				setTimer(yellow_duration*100, 0);
 				status = YELLOW_RED;
+				setInitialValue(yellow_duration, yellow_duration);
 			}
 			if(timer_flag[1] == 1){
 				countDown();
@@ -83,6 +86,7 @@ void fsm_automatic_run(){
 				setPedesLeds(RESET,RESET,RESET);
 				setTimer(green_duration*100, 0);
 				status = RED_GREEN;
+				setInitialValue(red_duration, green_duration);
 			}
 			if(timer_flag[1] == 1){
 				countDown();
